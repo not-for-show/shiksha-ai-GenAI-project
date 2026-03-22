@@ -565,8 +565,8 @@ function BookViewer({ book, onClose }) {
 // ════════════════════════════════════════════════════════
 const getStudents = () => LS.get("shiksha_students", []);
 const saveStudents = (s) => LS.set("shiksha_students", s);
-const getTeachers  = () => LS.get("shiksha_teachers",  [{ id: "root", name: "Admin Teacher", username: "admin", password: "shiksha123", isRoot: true }]);
-const saveTeachers = (t) => LS.set("shiksha_teachers",  t);
+const getTeachers = () => LS.get("shiksha_teachers", [{ id: "root", name: "Admin Teacher", username: "admin", password: "shiksha123", isRoot: true }]);
+const saveTeachers = (t) => LS.set("shiksha_teachers", t);
 
 // ════════════════════════════════════════════════════════
 //  ROLE SELECTION — redesigned landing page
@@ -575,17 +575,17 @@ function RolePage({ onStudent, onTeacher, lang, setLang }) {
   const isHi = lang === "hi";
   const stats = [
     { n: "6–12", l: isHi ? "कक्षाएँ" : "Classes" },
-    { n: "10+",  l: isHi ? "विषय"   : "Subjects" },
-    { n: "₹0",   l: isHi ? "लागत"   : "Cost" },
-    { n: "2s",   l: isHi ? "उत्तर"  : "Avg Answer" },
+    { n: "10+", l: isHi ? "विषय" : "Subjects" },
+    { n: "₹0", l: isHi ? "लागत" : "Cost" },
+    { n: "2s", l: isHi ? "उत्तर" : "Avg Answer" },
   ];
   const features = [
-    { icon: "🧠", t: isHi ? "NCERT-आधारित" : "NCERT-Aligned",       d: isHi ? "हर उत्तर पाठ्यपुस्तक से" : "Every answer from your textbook" },
-    { icon: "📐", t: isHi ? "सूत्र रेंडरिंग" : "Formula Rendering",  d: isHi ? "गणित और विज्ञान के सूत्र" : "Math & science formulas rendered" },
-    { icon: "🌐", t: isHi ? "द्विभाषी"      : "Hindi + English",     d: isHi ? "हिंदी और अंग्रेज़ी दोनों" : "Ask in Hindi or English" },
-    { icon: "⚡", t: isHi ? "तेज़ कैश"      : "Smart Cache",         d: isHi ? "दोबारा पूछने पर तुरंत जवाब" : "Repeat questions answered instantly" },
-    { icon: "📱", t: isHi ? "मोबाइल-फर्स्ट" : "Mobile-First",        d: isHi ? "2G पर भी काम करता है" : "Works even on 2G connections" },
-    { icon: "🔒", t: isHi ? "शिक्षक नियंत्रण" : "Teacher Control",   d: isHi ? "शिक्षक छात्र एक्सेस देते हैं" : "Teacher-gated student access" },
+    { icon: "🧠", t: isHi ? "NCERT-आधारित" : "NCERT-Aligned", d: isHi ? "हर उत्तर पाठ्यपुस्तक से" : "Every answer from your textbook" },
+    { icon: "📐", t: isHi ? "सूत्र रेंडरिंग" : "Formula Rendering", d: isHi ? "गणित और विज्ञान के सूत्र" : "Math & science formulas rendered" },
+    { icon: "🌐", t: isHi ? "द्विभाषी" : "Hindi + English", d: isHi ? "हिंदी और अंग्रेज़ी दोनों" : "Ask in Hindi or English" },
+    { icon: "⚡", t: isHi ? "तेज़ कैश" : "Smart Cache", d: isHi ? "दोबारा पूछने पर तुरंत जवाब" : "Repeat questions answered instantly" },
+    { icon: "📱", t: isHi ? "मोबाइल-फर्स्ट" : "Mobile-First", d: isHi ? "2G पर भी काम करता है" : "Works even on 2G connections" },
+    { icon: "🔒", t: isHi ? "शिक्षक नियंत्रण" : "Teacher Control", d: isHi ? "शिक्षक छात्र एक्सेस देते हैं" : "Teacher-gated student access" },
   ];
   return (
     <div style={{ minHeight: "100vh", background: "var(--cream)", fontFamily: "var(--font-ui)", overflowX: "hidden" }}>
@@ -608,7 +608,7 @@ function RolePage({ onStudent, onTeacher, lang, setLang }) {
         </div>
         <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
           <button onClick={() => setLang(isHi ? "en" : "hi")} style={{ background: "none", border: "1.5px solid var(--border2)", borderRadius: 8, padding: "6px 16px", fontSize: 13, fontWeight: 600, color: "var(--ink2)", cursor: "pointer", transition: "all .2s" }}
-            onMouseEnter={e => e.currentTarget.style.borderColor="var(--navy)"} onMouseLeave={e => e.currentTarget.style.borderColor="var(--border2)"}>
+            onMouseEnter={e => e.currentTarget.style.borderColor = "var(--navy)"} onMouseLeave={e => e.currentTarget.style.borderColor = "var(--border2)"}>
             {isHi ? "English" : "हिंदी"}
           </button>
         </div>
@@ -648,8 +648,8 @@ function RolePage({ onStudent, onTeacher, lang, setLang }) {
 
           {/* Student card */}
           <div className="role-card" onClick={onStudent} style={{ background: "linear-gradient(135deg,#fffaf5 0%,#fff5ec 100%)", border: "2px solid #f9c99a", borderRadius: 20, padding: "24px 26px", cursor: "pointer", transition: "all .25s", boxShadow: "0 4px 20px rgba(232,101,10,.1)", textAlign: "left" }}
-            onMouseEnter={e => { e.currentTarget.style.transform="translateY(-3px)"; e.currentTarget.style.boxShadow="0 14px 36px rgba(232,101,10,.2)"; e.currentTarget.style.borderColor="var(--saffron)"; }}
-            onMouseLeave={e => { e.currentTarget.style.transform="none"; e.currentTarget.style.boxShadow="0 4px 20px rgba(232,101,10,.1)"; e.currentTarget.style.borderColor="#f9c99a"; }}>
+            onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-3px)"; e.currentTarget.style.boxShadow = "0 14px 36px rgba(232,101,10,.2)"; e.currentTarget.style.borderColor = "var(--saffron)"; }}
+            onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "0 4px 20px rgba(232,101,10,.1)"; e.currentTarget.style.borderColor = "#f9c99a"; }}>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 10 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
                 <div style={{ width: 46, height: 46, background: "linear-gradient(135deg,var(--saffron),var(--saffron2))", borderRadius: 13, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, boxShadow: "0 3px 10px rgba(232,101,10,.3)" }}>🎒</div>
@@ -667,8 +667,8 @@ function RolePage({ onStudent, onTeacher, lang, setLang }) {
 
           {/* Teacher card */}
           <div className="role-card" onClick={onTeacher} style={{ background: "linear-gradient(135deg,#f0f4ff 0%,#e8eeff 100%)", border: "2px solid #c7d4f5", borderRadius: 20, padding: "24px 26px", cursor: "pointer", transition: "all .25s", boxShadow: "0 4px 20px rgba(15,32,68,.08)", textAlign: "left" }}
-            onMouseEnter={e => { e.currentTarget.style.transform="translateY(-3px)"; e.currentTarget.style.boxShadow="0 14px 36px rgba(15,32,68,.18)"; e.currentTarget.style.borderColor="var(--navy)"; }}
-            onMouseLeave={e => { e.currentTarget.style.transform="none"; e.currentTarget.style.boxShadow="0 4px 20px rgba(15,32,68,.08)"; e.currentTarget.style.borderColor="#c7d4f5"; }}>
+            onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-3px)"; e.currentTarget.style.boxShadow = "0 14px 36px rgba(15,32,68,.18)"; e.currentTarget.style.borderColor = "var(--navy)"; }}
+            onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "0 4px 20px rgba(15,32,68,.08)"; e.currentTarget.style.borderColor = "#c7d4f5"; }}>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 10 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
                 <div style={{ width: 46, height: 46, background: "linear-gradient(135deg,var(--navy),var(--navy2))", borderRadius: 13, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, boxShadow: "0 3px 10px rgba(15,32,68,.3)" }}>👩‍🏫</div>
@@ -697,8 +697,8 @@ function RolePage({ onStudent, onTeacher, lang, setLang }) {
         <div className="feat-grid fu3">
           {features.map((f, i) => (
             <div key={i} style={{ background: "var(--white)", border: "1px solid var(--border)", borderRadius: 16, padding: "22px 20px", boxShadow: "0 2px 10px rgba(0,0,0,.04)", transition: "all .22s", textAlign: "left" }}
-              onMouseEnter={e => { e.currentTarget.style.transform="translateY(-2px)"; e.currentTarget.style.boxShadow="0 8px 24px rgba(0,0,0,.09)"; e.currentTarget.style.borderColor="var(--saffron)"; }}
-              onMouseLeave={e => { e.currentTarget.style.transform="none"; e.currentTarget.style.boxShadow="0 2px 10px rgba(0,0,0,.04)"; e.currentTarget.style.borderColor="var(--border)"; }}>
+              onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,.09)"; e.currentTarget.style.borderColor = "var(--saffron)"; }}
+              onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "0 2px 10px rgba(0,0,0,.04)"; e.currentTarget.style.borderColor = "var(--border)"; }}>
               <div style={{ fontSize: 28, marginBottom: 10 }}>{f.icon}</div>
               <div style={{ fontWeight: 700, fontSize: 14.5, color: "var(--navy)", marginBottom: 5 }}>{f.t}</div>
               <div style={{ fontSize: 12.5, color: "var(--ink3)", lineHeight: 1.6 }}>{f.d}</div>
@@ -719,11 +719,11 @@ function RolePage({ onStudent, onTeacher, lang, setLang }) {
         </div>
         <div style={{ display: "flex", gap: 12, flexWrap: "wrap", flexShrink: 0 }}>
           <button onClick={onStudent} style={{ background: "linear-gradient(135deg,var(--saffron),var(--saffron2))", color: "white", border: "none", borderRadius: 12, padding: "14px 28px", fontFamily: "var(--font-ui)", fontWeight: 800, fontSize: 15, cursor: "pointer", boxShadow: "0 4px 20px rgba(232,101,10,.4)", transition: "all .2s" }}
-            onMouseEnter={e => e.currentTarget.style.transform="translateY(-2px)"} onMouseLeave={e => e.currentTarget.style.transform="none"}>
+            onMouseEnter={e => e.currentTarget.style.transform = "translateY(-2px)"} onMouseLeave={e => e.currentTarget.style.transform = "none"}>
             🎒 {isHi ? "छात्र →" : "Student →"}
           </button>
           <button onClick={onTeacher} style={{ background: "rgba(255,255,255,.1)", color: "white", border: "1.5px solid rgba(255,255,255,.3)", borderRadius: 12, padding: "14px 28px", fontFamily: "var(--font-ui)", fontWeight: 700, fontSize: 15, cursor: "pointer", transition: "all .2s", backdropFilter: "blur(8px)" }}
-            onMouseEnter={e => e.currentTarget.style.background="rgba(255,255,255,.2)"} onMouseLeave={e => e.currentTarget.style.background="rgba(255,255,255,.1)"}>
+            onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,.2)"} onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,.1)"}>
             👩‍🏫 {isHi ? "शिक्षक →" : "Teacher →"}
           </button>
         </div>
@@ -1291,10 +1291,10 @@ function StudentDashboard({ lang, setLang, onBack }) {
     // ── Keyword error messages ──────────────────────────────
     const errMsg = (type) => {
       const msgs = {
-        offline:  isHi ? "⚡ Backend offline — terminal mein `node server.js` chalayein" : "⚡ Backend offline — run `node server.js` in terminal",
-        http:     isHi ? "🔴 Server error — OpenAI key check karein ya server restart karein" : "🔴 Server error — check OpenAI key or restart server",
-        empty:    isHi ? "⚠️ Empty response — server se koi jawab nahi aaya" : "⚠️ No response — server returned empty answer",
-        unknown:  isHi ? "❌ Unknown error — console check karein" : "❌ Unknown error — check browser console",
+        offline: isHi ? "⚡ Backend offline — terminal mein `node server.js` chalayein" : "⚡ Backend offline — run `node server.js` in terminal",
+        http: isHi ? "🔴 Server error — OpenAI key check karein ya server restart karein" : "🔴 Server error — check OpenAI key or restart server",
+        empty: isHi ? "⚠️ Empty response — server se koi jawab nahi aaya" : "⚠️ No response — server returned empty answer",
+        unknown: isHi ? "❌ Unknown error — console check karein" : "❌ Unknown error — check browser console",
       };
       return msgs[type] || msgs.unknown;
     };
@@ -1302,7 +1302,7 @@ function StudentDashboard({ lang, setLang, onBack }) {
     try {
       let resp;
       try {
-        resp = await fetch("http://localhost:5000/api/ask", {
+        resp = await fetch("https://shiksha-backend-pikf.onrender.com/api/ask", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ question: q, cls, subject, lang }),
@@ -1852,35 +1852,35 @@ function AdminPanel({ onBack }) {
                 <button onClick={() => setTab("upload")} style={{ background: "linear-gradient(135deg,var(--navy),var(--navy2))", color: "white", border: "none", borderRadius: 9, padding: "10px 22px", fontFamily: "var(--font-ui)", fontWeight: 700, fontSize: 13.5, cursor: "pointer" }}>+ Upload First Textbook</button>
               </div>
             ) : (
-            <div style={{ overflowX: "auto" }}>
-              <table style={{ width: "100%", borderCollapse: "collapse" }}>
-                <thead>
-                  <tr style={{ background: "var(--paper)", fontSize: 11, color: "var(--ink3)", letterSpacing: ".06em", textTransform: "uppercase" }}>
-                    {t.tableHeaders.map(h => <th key={h} style={{ padding: "10px 16px", fontWeight: 700, textAlign: "left", whiteSpace: "nowrap" }}>{h}</th>)}
-                  </tr>
-                </thead>
-                <tbody>
-                  {books.map(b => (
-                    <tr key={b.id} style={{ borderTop: "1px solid var(--border)", fontSize: 14, transition: "background .15s" }}
-                      onMouseEnter={e => e.currentTarget.style.background = "var(--paper)"}
-                      onMouseLeave={e => e.currentTarget.style.background = "transparent"}>
-                      <td style={{ padding: "13px 16px", fontWeight: 600, color: "var(--ink)" }}>📘 {b.title}</td>
-                      <td style={{ padding: "13px 16px" }}><Badge color="navy">Class {b.cls}</Badge></td>
-                      <td style={{ padding: "13px 16px" }}><Badge color="orange">{b.subject}</Badge></td>
-                      <td style={{ padding: "13px 16px", color: "var(--ink2)" }}>{b.chapters} ch.</td>
-                      <td style={{ padding: "13px 16px", color: "var(--ink3)" }}>{b.uploaded}</td>
-                      <td style={{ padding: "13px 16px" }}>
-                        <div style={{ display: "flex", gap: 6 }}>
-                          {/* FIX 5: View button */}
-                          <button onClick={() => setViewBook(b)} style={{ background: "#dde8ff", color: "var(--navy)", border: "none", borderRadius: 6, padding: "4px 10px", cursor: "pointer", fontSize: 12, fontWeight: 600 }}>{t.viewBtn}</button>
-                          <button onClick={() => { updateBooks(books.filter(x => x.id !== b.id)); setToast({ message: "Book removed.", type: "info" }); }} style={{ background: "#fee2e2", color: "#b91c1c", border: "none", borderRadius: 6, padding: "4px 10px", cursor: "pointer", fontSize: 12, fontWeight: 600 }}>{t.deleteBtn}</button>
-                        </div>
-                      </td>
+              <div style={{ overflowX: "auto" }}>
+                <table style={{ width: "100%", borderCollapse: "collapse" }}>
+                  <thead>
+                    <tr style={{ background: "var(--paper)", fontSize: 11, color: "var(--ink3)", letterSpacing: ".06em", textTransform: "uppercase" }}>
+                      {t.tableHeaders.map(h => <th key={h} style={{ padding: "10px 16px", fontWeight: 700, textAlign: "left", whiteSpace: "nowrap" }}>{h}</th>)}
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                  </thead>
+                  <tbody>
+                    {books.map(b => (
+                      <tr key={b.id} style={{ borderTop: "1px solid var(--border)", fontSize: 14, transition: "background .15s" }}
+                        onMouseEnter={e => e.currentTarget.style.background = "var(--paper)"}
+                        onMouseLeave={e => e.currentTarget.style.background = "transparent"}>
+                        <td style={{ padding: "13px 16px", fontWeight: 600, color: "var(--ink)" }}>📘 {b.title}</td>
+                        <td style={{ padding: "13px 16px" }}><Badge color="navy">Class {b.cls}</Badge></td>
+                        <td style={{ padding: "13px 16px" }}><Badge color="orange">{b.subject}</Badge></td>
+                        <td style={{ padding: "13px 16px", color: "var(--ink2)" }}>{b.chapters} ch.</td>
+                        <td style={{ padding: "13px 16px", color: "var(--ink3)" }}>{b.uploaded}</td>
+                        <td style={{ padding: "13px 16px" }}>
+                          <div style={{ display: "flex", gap: 6 }}>
+                            {/* FIX 5: View button */}
+                            <button onClick={() => setViewBook(b)} style={{ background: "#dde8ff", color: "var(--navy)", border: "none", borderRadius: 6, padding: "4px 10px", cursor: "pointer", fontSize: 12, fontWeight: 600 }}>{t.viewBtn}</button>
+                            <button onClick={() => { updateBooks(books.filter(x => x.id !== b.id)); setToast({ message: "Book removed.", type: "info" }); }} style={{ background: "#fee2e2", color: "#b91c1c", border: "none", borderRadius: 6, padding: "4px 10px", cursor: "pointer", fontSize: 12, fontWeight: 600 }}>{t.deleteBtn}</button>
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             )}
           </div>
         )}
@@ -2302,16 +2302,16 @@ export default function ShikshaApp() {
 
   const changeLang = (l) => { setLang(l); LS.set("shiksha_lang", l); };
 
-  const handleStudentEnter  = (s) => { setStudent(s); setPage("studentHome"); };
+  const handleStudentEnter = (s) => { setStudent(s); setPage("studentHome"); };
   const handleStudentLogout = () => { setStudent(null); LS.del("shiksha_student_session"); setPage("role"); };
-  const handleTeacherEnter  = () => { setPage("admin"); };
+  const handleTeacherEnter = () => { setPage("admin"); };
 
-  if (page === "role")        return <RolePage onStudent={() => setPage("studentAuth")} onTeacher={() => setPage("teacherAuth")} lang={lang} setLang={changeLang} />;
+  if (page === "role") return <RolePage onStudent={() => setPage("studentAuth")} onTeacher={() => setPage("teacherAuth")} lang={lang} setLang={changeLang} />;
   if (page === "studentAuth") return <StudentAuth onBack={() => setPage("role")} onEnter={handleStudentEnter} lang={lang} />;
   if (page === "teacherAuth") return <TeacherAuth onBack={() => setPage("role")} onEnter={handleTeacherEnter} lang={lang} />;
   if (page === "studentHome") return <StudentHome student={student} lang={lang} setLang={changeLang} onQA={() => setPage("dashboard")} onPDFs={() => setPage("pdfs")} onLogout={handleStudentLogout} />;
-  if (page === "pdfs")        return <StudentPDFLibrary student={student} lang={lang} onBack={() => setPage("studentHome")} />;
-  if (page === "dashboard")   return <StudentDashboard lang={lang} setLang={changeLang} onBack={() => setPage("studentHome")} />;
-  if (page === "admin")       return <AdminPanel onBack={() => setPage("role")} />;
+  if (page === "pdfs") return <StudentPDFLibrary student={student} lang={lang} onBack={() => setPage("studentHome")} />;
+  if (page === "dashboard") return <StudentDashboard lang={lang} setLang={changeLang} onBack={() => setPage("studentHome")} />;
+  if (page === "admin") return <AdminPanel onBack={() => setPage("role")} />;
   return null;
 }
